@@ -47,6 +47,7 @@ func (s *Stream) Send(p *Packet) (ok bool) {
 }
 
 func (s *Stream) Close() {
+	defer recover()
 	close(s.FrameChan)
 }
 
